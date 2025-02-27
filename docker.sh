@@ -6,4 +6,4 @@ sudo docker run -e MONGO=true docker.io/redhat/ubi9 env
 
 #Remove Unused Containers, Images, Volumes, and Networks
 
-docker system prune -a --volumes
+sudo docker system prune -a --volumes
