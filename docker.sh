@@ -24,5 +24,17 @@ sudo docker volume prune
 
 sudo docker system df
 
-# reboot will make container go off
+# reboot will make container go off/reboot
 sudo docker -d --restart always -P container-name # --restart | always|no |never|on-failure
+
+# container redhat/ubi9
+sudo docker run -P contianername # P any random port
+#-d detached mode 
+
+# to check status of contianer
+docker ps 
+
+# logs of contianer
+docker logs container-id
+# continoous logs
+docker logs -f container-id
