@@ -1,0 +1,2 @@
+component: mysql
+secrets: "{{lookup('hashi_vault','secret=roboshop-{{env}}/data/mysql token={{vault_token}} url=https://vault-internal.man.online:8200 validate_certs=False)}}"

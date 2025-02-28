@@ -1,0 +1,20 @@
+[Unit]
+Description=Payment Service
+
+[Service]
+User=root
+WorkingDirectory=/app
+Environment=CART_HOST={{secrets.CART_HOST}}
+Environment=CART_PORT={{secrets.CART_PORT}}
+Environment=USER_HOST={{secrets.USER_HOST}}
+Environment=USER_PORT={{secrets.USER_PORT}}
+Environment=AMQP_HOST={{secrets.AMQP_HOST}}
+Environment=AMQP_USER={{secrets.AMQP_USER}}
+Environment=AMQP_PASS={{secrets.AMQP_PASS}}
+
+ExecStart=/usr/local/bin/uwsgi --ini payment.ini
+ExecStop=/bin/kill -9 $MAINPID
+SyslogIdentifier=payment
+
+[Install]
+WantedBy=multi-user.target

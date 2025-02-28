@@ -1,0 +1,12 @@
+[Unit]
+Description= Cart Service
+[Service]
+User=roboshop
+Environment=REDIS_HOST={{secrets.REDIS_HOST}}
+Environment=CATALOGUE_HOST={{secrets.CATALOGUE_HOST}}
+Environment=CATALOGUE_PORT={{secrets.CATALOGUE_PORT}}
+ExecStart=/bin/node /app/server.js
+SyslogIdentifier=Cart
+
+[Install]
+WantedBy=multi.user.target

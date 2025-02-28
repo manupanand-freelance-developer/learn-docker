@@ -1,0 +1,8 @@
+component: shipping
+app_path: /app
+schema_setup: mysql
+schema_files:
+  - schema
+  - master-data 
+  - app-user
+secrets: "{{lookup('hashi_vault','secret=roboshop-{{env}}/data/shipping token={{vault_token}} url=https://vault-internal.man.online:8200 validate_certs=False)}}"

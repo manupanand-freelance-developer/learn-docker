@@ -30,6 +30,8 @@ sudo docker -d --restart always -P container-name # --restart | always|no |never
 # container redhat/ubi9
 sudo docker run -P contianername # P any random port
 #-d detached mode 
+# attach back it to shell
+sudo docker attach container-id
 
 # to check status of contianer
 docker ps 
@@ -38,3 +40,25 @@ docker ps
 docker logs container-id
 # continoous logs
 docker logs -f container-id
+
+# copy from contianer  to host system
+docker cp contianer-id:/etc/nginx/nginx.conf /tmp/test.conf # can cp reverse also
+
+# create container - only creates not run
+docker create nginx # will create only
+# start container 
+docker start contianer
+
+# if we want to know the changes in file sysytem while running
+docker diff contianerid
+
+# docker events to track events continously
+docker events
+
+# execute command inside a contianer
+docker exec container-id
+
+# if a container is launced -> want  generate yaml for kubernets or JSON spec or systemd units
+docker generate kube |spec | systemd
+
+# docker health check

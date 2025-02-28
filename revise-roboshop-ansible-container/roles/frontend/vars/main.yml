@@ -1,0 +1,3 @@
+app_path: /usr/share/nginx/html
+component: frontend
+secrets: "{{lookup('hashi_vault','secret=roboshop-{{env}}/data/frontend token={{vault_token}} url=https://vault-internal.man.online:8200 validate_certs=false)}}"

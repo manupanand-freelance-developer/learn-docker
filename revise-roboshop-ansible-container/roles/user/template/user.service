@@ -1,0 +1,12 @@
+[Unit]
+Description = User Service
+[Service]
+User=roboshop
+Environment=MONGO={{secrets.MONGO}}
+Environment=REDIS_URL="{{secrets.REDIS_URL}}"
+Environment=MONGO_URL="{{secrets.MONGO_URL}}"
+ExecStart=/bin/node /app/server.js
+SyslogIdentifier=user
+
+[Install]
+WantedBy=multi-user.target

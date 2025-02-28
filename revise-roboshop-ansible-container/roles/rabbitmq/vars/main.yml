@@ -1,0 +1,2 @@
+component: rabbitmq
+secrets: "{{lookup('hashi_vault','secret=roboshop-{{env}}/data/rabbitmq token={{vault_token}} url=https://vault-internal.man.online:8200 validate_certs=False)}}"
