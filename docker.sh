@@ -62,3 +62,16 @@ docker exec container-id
 docker generate kube |spec | systemd
 
 # docker health check
+docker health container-id
+
+# history
+docker history image # steps involved in making this image
+
+# export -container files as tar
+# import- tarball to create filesystem image
+
+
+# docker ps 
+docker ps # list running contianer
+docker ps -a # list running container
+docker ps -a -q # list all contianers name only
