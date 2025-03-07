@@ -75,3 +75,68 @@ docker history image # steps involved in making this image
 docker ps # list running contianer
 docker ps -a # list running container
 docker ps -a -q # list all contianers name only
+
+# give low level information of the container
+docker inspect container-id
+
+# kill 
+docker kill container-id
+docker kill --signal TERM contianer-id #kill signal
+# data bases need to be cautious when sending kill - need appropriate signal
+
+# login/logout
+docker login # to conatiner registry /docker hub
+docker login docker.io
+
+# docker logs
+docker logs container-id
+docker logs -f container-id # follow logs
+
+# machine - manage virtual machine sitiing on one place and manage machine
+
+# list all and remove
+docker images -q  # will list all
+docker rmi -f `docker images -q` # remove all images
+# docker rm contianer
+docker ps -a -q # list all
+docker rm -f   `docker ps -a -q` 
+
+# docker mount container-id df -h
+docker mount contianer #it will mount to
+#/home/ec2-user/.local/share/contianers/storage/overlay-container/35565898er68er5wr9wr1w5r9er7w2r6995w5r62x5a9/merged
+cd /home/ec2-user/.local/share/contianers/storage/overlay-container/35565898er68er5wr9wr1w5r9er7w2r6995w5r62x5a9/merged
+# can create file touch filename
+docker exec containaer-id  ls # list command to see files
+
+
+#ps list container
+ docker port contianer #  port associated with container
+
+# give name for docker contianer
+docker run -d --name some-name image-name
+
+# rename
+docker rename some-name new-name
+
+# secret management 
+ example
+ echo "pawssord" > passwordfile
+ docker secret create nameforsecret passwordfile
+ # list secret
+ docker secret ls
+ # run docker with secret
+ docker run  -d --secret nameofsecret image-name
+ #check files
+ docker exec contianer-id ls -l /run/secrets #list secrets in contianer
+
+ # docker stats usage/memory
+ docker stats
+ docker system df
+
+ # single image id but give different tag name
+
+ docker tag docker.io/nginx new-image-frontend
+
+
+
+ 
