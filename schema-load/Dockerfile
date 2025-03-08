@@ -4,7 +4,7 @@ FROM redhat/ubi9-minimal
 COPY mongo.repo /etc/yum.repos.d/mongo.repo
 
 # Install required packages
-RUN microdnf install -y mysql mongodb-mongosh git && microdnf clean all
+RUN microdnf install -y mysql mongodb-mongosh git && microdnf clean all  && rm -rf /var/cache/yum
 
 # Ensure run.sh has execute permissions
 COPY run.sh /run.sh
