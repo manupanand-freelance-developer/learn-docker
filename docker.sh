@@ -139,4 +139,7 @@ docker rename some-name new-name
 
 
 
+# docker build
+docker build . # from current directory
+docker build -t docker/ecr-registry-name .
  
